@@ -22,7 +22,8 @@
                         }" @click="changeSelectDay(index)" :key="index">{{item}}</span>
                 </div>
                 <button @click='checkIn' v-if="!signin">点击签到</button>    
-                <button @click='checkIn' v-if="signin">已签到</button>    
+                <button @click='checkIn' v-if="signin">已签到</button>  
+                <div>11</div>  
             </div>
         </transition>
     </div>
