@@ -23,7 +23,8 @@
                 </div>
                 <button @click='checkIn' v-if="!signin">点击签到</button>    
                 <button @click='checkIn' v-if="signin">已签到</button>   
-                <div>222222222222222</div> 
+                <div>222222222222</div> 
+                <div>1212121</div>
             </div>
         </transition>
     </div>
