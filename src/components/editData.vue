@@ -11,6 +11,7 @@
         <div class="editContent">
             <input type="text" v-model="editValue">
             <button>确定</button>
+            我是个大帅比
         </div>
         <table>
             <thead>
