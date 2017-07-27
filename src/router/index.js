@@ -1,16 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import CalendarInput from '../components/calendar-input'
+import indexPage from '../views/index'
 
 Vue.use(Router)
-
 export default new Router({
-  mode:'history',
-  routes: [
-    {
-      path: '/',
-      name: 'CalendarInput',
-      component: CalendarInput
-    }
-  ]
+	routes: [
+		{
+			name:'index',
+			path: '/',
+			component: indexPage
+		}
+	]
 })

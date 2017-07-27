@@ -1,0 +1,318 @@
+//reset.css
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* Don't kill focus outline for keyboard users: http://24ways.org/2009/dont-lose-your-focus */
+a:hover, a:active {
+    outline: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+//transition  start
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0
+}
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+//transition  end
+
+
+//阿里巴巴IconFont图标库
+.icon{
+    width: 1em; 
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+
+#app{
+    font-size: 0.28rem;
+    .index{
+        .header{
+			background: #00a2ff;
+			height: 1.2rem;
+			text-align: center;
+			line-height: 1.2rem;
+			position: fixed;
+			width: 100%;
+			h1{
+				color: #fff;
+			}
+			.icon_line{
+				display: flex;
+				flex-direction: column;
+				position: absolute;
+				right: 0.3rem;
+				top: 0.43rem;
+				span{
+					height: 0.08rem;
+					width: 0.6rem;
+					background: #fff;
+					margin-bottom: 0.1rem;
+				}
+			}
+		}
+		.model{
+			position: fixed;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.5);
+			top: 1.2rem;
+			padding: 1rem 1.3rem;
+			.model_button{
+				display: flex;
+				flex-direction: column;
+				button{
+					margin: 0;
+					padding: 0.2rem 0.3rem;
+					border-radius: 3px;
+					margin-top: 0.3rem;
+					border: none;
+					color: #fff;
+					background: #00a2ff;
+					font-size: 0.3rem;
+				}
+			}
+		}
+		.content{
+			padding-top: 1.2rem;
+			.search{
+				display: flex;
+				padding: 0.66rem 0.32rem;
+				justify-content: space-between;
+				input{
+					font-size: 0.3rem;
+					padding: 0.2rem 0 0.2rem 0.2rem;
+					border: 1px solid #c0ccda;
+					border-radius: 5px;
+					width: 68%;
+					color: #666;
+					transition: border-color 0.2s;
+					&:focus {
+						outline: none;
+						border-color: #20a0ff;
+					}
+				}
+				button{
+					background: #00a2ff;
+					padding: 0 0.44rem;
+					border: none;
+					border-radius: 3px;
+					margin-left: 0.32rem;
+					font-size: initial;
+					color: #fff;
+					line-height: 0.4rem;
+					outline: none;
+				}
+			}
+			.searchResult{
+				.searchResult_ul{
+					padding: 0 0.32rem;
+					.searchResult_li{
+						margin-bottom: 1px;
+						.no_component{
+							height: 0.88rem;
+							display: flex;
+							justify-content: space-between;
+							align-items: center;
+							color: #fff;
+							padding: 0 0.32rem;
+							font-size: 0.32rem;
+							background: #00a2ff;
+							svg{
+								width: 20px;
+								height: 20px;
+								transition: all 0.3s;
+								&.iconClose{
+									transform: rotate(90deg)
+								}
+							}
+						}
+						.cancal{
+							border-left: 1px solid #ccc;
+							border-right: 1px solid #ccc;
+							li{
+								display: flex;
+								justify-content: space-between;
+								align-items: center;
+								// margin: 0.32rem 0;
+								border-bottom: 1px solid #ccc;
+								padding: 0.32rem;
+								input{
+									width: 20px;
+									height: 20px;
+								}
+								.waitText{
+									width: 60%;
+								}
+								button{
+									background: #fff;
+									border: 1px solid #ccc;
+									border-radius: 2px;
+									padding: 0.08rem 0.15rem;
+								}
+								span{
+									color: #333;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.content.hide{
+			display: none;
+		}
+		.dialog{
+			position: fixed;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			background: rgba(0, 0, 0, 0.8);
+			.dialog_body{
+				position: absolute;
+				width: 60%;
+				height: 4rem;
+				background: #fff;
+				top: 50%;
+				left: 15%;
+				border-radius: 5px;
+				padding: 0 0.32rem;	
+				margin-top: -2rem;			
+				h3{
+					margin-top: 0.32rem;
+				}
+				span{
+					display: inline-block;
+					width: 100%;
+					margin: 0.64rem 0;
+					text-align: center;
+				}
+				div{
+					button{
+						background: #fff;
+						border: 1px solid #ccc;
+						margin-top: 0.64rem;
+						outline: none;
+						border-radius: 3px;
+						height: 0.64rem;
+						width: 0.88rem;
+						float: right;
+						margin-left: 0.3rem;
+					}
+					button.cancal{
+						color: #f00;
+					}
+					button.determine{
+						color: #20a0ff;
+					}
+				}
+			}
+		}
+		.editData{
+			padding-top: 1.2rem;
+			.searchData{
+				margin: 0.32rem 0;
+				display: flex;
+				select{
+					height: 0.6rem;
+					outline: none;
+					margin-right: 0.32rem;
+				}
+				input{
+					width: 100%;
+					padding-left: 0.32rem;
+					outline: none;
+					color: #333;
+				}
+			}
+			table{
+				width: 100%;
+				thead,tbody{
+					tr{
+						display: flex;
+							align-items: center;
+						th{
+							width: 25%;
+							// border: 1px solid #ccc;
+							margin-left: -1px;
+							margin: 0.22rem 0;
+							
+							button{
+								padding: 0.05rem;
+								background: #fff;
+								border: none;
+								border-radius: 3px;
+							}
+							button.edit{
+								color: #fff;
+								background: #00a2ff;;
+							}
+							button.delete{
+								color: #fff;
+								background: #f00;
+							}
+						}
+						th.lest{
+							margin-left: 0;
+						}
+					}
+				}
+			}
+		}
+    }
+}
+
