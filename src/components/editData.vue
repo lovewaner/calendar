@@ -11,7 +11,11 @@
         <div class="editContent">
             <input type="text" v-model="editValue">
             <button>确定</button>
+<<<<<<< HEAD
             333
+=======
+            222
+>>>>>>> feature1
         </div>
         <table>
             <thead>
