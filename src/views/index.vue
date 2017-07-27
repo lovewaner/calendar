@@ -4,7 +4,7 @@
         <model :isShow="isShow" @clearData="clearData" @editDataEvent="editDataEvent"></model>
         <div class="content" :class="{'hide': table}">
             <div class="search">
-                <input type="text" placeholder="待办事项" v-model.trim="waitValue" class="n_input" @keyup.enter="add">
+                <input type="text" placeholder="待办事项" v-model.trim="waitValue" class="n_input" @keyup.enter="add" v-focus>
                 <button @click="add">提交</button>
             </div>
             <div class="searchResult">

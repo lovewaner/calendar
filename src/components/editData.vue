@@ -8,6 +8,10 @@
             </select>
             <input type="text" placeholder="筛选关键字">
         </div>
+        <div class="editContent">
+            <input type="text" v-model="editValue">
+            <button>确定</button>
+        </div>
         <table>
             <thead>
                 <tr>

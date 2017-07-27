@@ -43,9 +43,6 @@ export default {
         getData() {
             return JSON.stringify(this.$store.state)
         }
-    },
-    created () {
-        console.log(this.getData)
     }
 }
 </script>
