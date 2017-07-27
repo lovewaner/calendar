@@ -12,6 +12,7 @@
             <input type="text" v-model="editValue">
             <button>确定</button>
             我是个大帅比
+            <button>确定</button>111111111111111111111
         </div>
         <table>
             <thead>
