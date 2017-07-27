@@ -56,7 +56,7 @@
                 </ul>
             </div>
         </div>
-        <editData :TableShow="table"></editData>
+        <editData :TableShow="table" @delete="dialogEvent"></editData>
         <dialogs :dialogShow="dialogShow" @sureEvent="sureEvent" @cancalEvent="cancalEvent"></dialogs>
     </div>
 </template>
@@ -81,7 +81,11 @@ export default {
             componentShow1: false,
             componentShow2: false,
             dialogShow: false,
-            table: false
+            table: false,
+            del_info: {
+                index: 0,
+                id: 0
+            }
         }
     },
     methods: {
@@ -167,6 +171,13 @@ export default {
         editDataEvent() {
             this.table = true
             this.isShow = false
+        },
+        dialogEvent(index,id){
+            this.del_info = {
+                index: index,
+                id: id
+            }
+            this.$store.dispatch('DELETEEVENT',this.del_info)
         }
     },
     computed: {

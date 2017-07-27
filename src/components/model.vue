@@ -1,5 +1,5 @@
 <template>
-    <transition name="fade" mode="">
+    <transition name="fade">
         <div class="model" v-if="isShow">
             <div class="model_button">
                 <button @click="downData('notepad.txt',getData)">下载数据</button>

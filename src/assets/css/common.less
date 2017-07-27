@@ -266,23 +266,51 @@ table {
 			padding-top: 1.2rem;
 			.searchData{
 				margin: 0.32rem 0;
-				display: flex;
-				select{
-					height: 0.6rem;
-					outline: none;
-					margin-right: 0.32rem;
-				}
 				input{
-					width: 100%;
 					padding-left: 0.32rem;
+					height: 0.64rem;
+					margin: 0 0.3rem;
+					outline: none;
+					color: #333;
+					width: 40%;
+					border-radius: 5px;
+					border: 1px solid #ccc;
+					transition: all 0.3s;
+					&:focus{
+						border-color: #00a2ff;
+						width: 70%;
+					}
+				}
+			}
+			.editContent{
+				position: fixed;
+				background: #fff;
+				width: 100%;
+				padding: 0.3rem 0;
+				top: 1.2rem;
+				display: flex;
+				justify-content: space-between;
+				input{
+					padding-left: 0.32rem;
+					width: 70%;
 					outline: none;
 					color: #333;
 					border-radius: 5px;
 					border: 1px solid #ccc;
 					transition: border-color 0.3s;
+					height: 0.64rem;
+					margin-left: 0.3rem;
 					&:focus{
 						border-color: #00a2ff;
 					}
+				}
+				button{
+					background: #00a2ff;
+					color: #fff;
+					border: none;
+					border-radius: 5px;
+					margin-right: 0.3rem;
+					padding: 0 0.3rem;
 				}
 			}
 			table{

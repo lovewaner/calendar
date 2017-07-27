@@ -67,6 +67,18 @@ const store = new Vuex.Store({
         clearData(state){
             local.clear()
             state.event = []
+        },
+        deleteEvent(state,info) {
+            if(state.event[info.index].id === info.id){
+                state.event.splice(info.index, 1);
+            }else{
+                state.event.filter(function(d,i){
+                    if(d.id == info.id){
+                        state.event.splice(i, 1)
+                    }
+                })
+            }
+            local.set(state)
         }
     },
     actions:{
@@ -84,6 +96,9 @@ const store = new Vuex.Store({
         },
         CLEARDATA({commit}){
             commit('clearData')
+        },
+        DELETEEVENT({commit},param){
+            commit('deleteEvent',param)
         }
     }
 })
