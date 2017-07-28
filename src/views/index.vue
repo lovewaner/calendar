@@ -10,48 +10,45 @@
             <div class="searchResult">
                 <ul class="searchResult_ul">
                     <li class="searchResult_li" >
-                        <div class="no_component" @click="componentShow = !componentShow">
+                        <div class="no_component" >
                             <span>未完成</span>
-                            <svg aria-hidden="true" :class="['icon',{'iconClose': componentShow}]">
-                                <use xlink:href="#icon-jiantou1"></use>
-                            </svg>
                         </div>
-                         <ul class="cancal" v-if="componentShow">
-                            <li v-for="(item,index) in waitList" :key="index">
-                                <input type="checkbox" @click="goDown(item.id,$event)">
-                                <p class="waitText">{{ item.content }}</p>
-                                <button @click="MoveCancal(item.id,$event)">取消</button>
-                            </li>
-                        </ul> 
+                        <open class="open">
+                            <ul class="cancal">
+                                <li v-for="(item,index) in waitList" :key="index">
+                                    <input type="checkbox" @click="goDown(item.id,$event)">
+                                    <p class="waitText">{{ item.content }}</p>
+                                    <button @click="MoveCancal(item.id,$event)">取消</button>
+                                </li>
+                            </ul>    
+                        </open> 
                     </li>
                     <li class="searchResult_li">
-                        <div class="no_component" @click="componentShow1 = !componentShow1">
+                        <div class="no_component">
                             <span>已完成</span>
-                            <svg aria-hidden="true" :class="['icon',{'iconClose': componentShow1}]">
-                                <use xlink:href="#icon-jiantou1"></use>
-                            </svg>
                         </div>
-                         <ul class="cancal" v-if="componentShow1">
-                            <li v-for="(item,index) in DownList" :key="index">
-                                <input type="checkbox" checked @click="MoveWait(item.id,$event)">
-                                <p class="waitText">{{ item.content }}</p>
-                                <span style="font-size: 14px;">{{ item.time}}</span>
-                            </li>
-                        </ul> 
+                        <open class="open">
+                            <ul class="cancal">
+                                <li v-for="(item,index) in DownList" :key="index">
+                                    <input type="checkbox" checked @click="MoveWait(item.id,$event)">
+                                    <p class="waitText">{{ item.content }}</p>
+                                    <span style="font-size: 14px;">{{ item.time}}</span>
+                                </li>
+                            </ul>    
+                        </open> 
                     </li>
                     <li class="searchResult_li">
-                        <div class="no_component" @click="componentShow2 = !componentShow2">
+                        <div class="no_component">
                             <span>已取消</span>
-                            <svg aria-hidden="true" :class="['icon',{'iconClose': componentShow2}]">
-                                <use xlink:href="#icon-jiantou1"></use>
-                            </svg>
                         </div>
-                         <ul class="cancal" v-if="componentShow2">
-                            <li v-for="(item,index) in CanaclList" :key="index">
-                                <p class="waitText waitText_color">{{ item.content }}</p>
-                                <button @click="MoveWait(item.id,$event)">恢复</button>
-                            </li>
-                        </ul> 
+                        <open class="open">
+                            <ul class="cancal">
+                                <li v-for="(item,index) in CanaclList" :key="index">
+                                    <p class="waitText waitText_color">{{ item.content }}</p>
+                                    <button @click="MoveWait(item.id,$event)">恢复</button>
+                                </li>
+                            </ul> 
+                        </open>
                     </li>
                 </ul>
             </div>
@@ -64,6 +61,7 @@
 <script>
 import Nheader from '../components/header'
 import model from '../components/model'
+import open from '../components/open'
 import dialogs from '../components/dialog'
 import editData from '../components/editData'
 import { mapActions } from 'vuex'
@@ -72,15 +70,13 @@ export default {
         Nheader,
         model,
         dialogs,
-        editData
+        editData,
+        open
     },
     data () {
         return {
             isShow: false,
             waitValue: '',
-            componentShow: false,
-            componentShow1: false,
-            componentShow2: false,
             dialogShow: false,
             table: false,
             del_info: {
@@ -159,9 +155,6 @@ export default {
                 id: id
             }
             this.$store.dispatch('DELETEEVENT',this.del_info)
-        },
-        add1(){
-            alert(1)
         }
     },
     computed: {
