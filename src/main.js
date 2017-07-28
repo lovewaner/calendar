@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import axios from "axios"
 import store from './store/index.js'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
 
 Vue.config.productionTip = false
 
@@ -14,6 +16,8 @@ Vue.directive('focus',{
         el.focus()
     })
 })
+
+Vue.use(ElementUI)
 
 //导入公共样式
 require("./assets/css/common.less")

@@ -1,5 +1,6 @@
 <template>
     <div class="calendar-input-container" v-show="show">
+        <secHeader :msg="msg"></secHeader>
         <label for="calendar-input">
             <input type="text" ref="mainInput" v-model="selectValue" class="calendar-input">
         </label>
@@ -21,16 +22,13 @@
                         select: index === trueSelectDay + firstDayInWeek - 1,
                         }" @click="changeSelectDay(index)" :key="index">{{item}}</span>
                 </div>
-                <button @click='checkIn' v-if="!signin">点击签到</button>    
-                <button @click='checkIn' v-if="signin">已签到</button>  
-                <div>22</div>
-                <div>111</div>  
             </div>
         </transition>
     </div>
 </template>
 
 <script>
+import secHeader from '../components/secHeader'
 export default {
     data () {
         return {
@@ -49,7 +47,8 @@ export default {
 				maxDay: 23
             },
             show: true,
-            signin: false
+            signin: false,
+            msg: '签到页面',
         }
     },
     methods: {
@@ -205,20 +204,25 @@ export default {
             }
             return arr
         }
+    },
+    components: {
+        secHeader
     }
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .calendar-input-container{
     width: 100%;
+    text-align: center;
 }
 .calendar-input{
-    width: 100%;
+    width: 60%;
     height: 30px;
     font-size: 100%;
     text-align: center;
     color: #333;
+    margin-top: 0.3rem;
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s ease;
@@ -228,7 +232,7 @@ export default {
 }
 #calendar-header{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     line-height: 300%;
     margin: 10px 0;  
 }

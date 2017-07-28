@@ -48,13 +48,14 @@
                         </div>
                          <ul class="cancal" v-if="componentShow2">
                             <li v-for="(item,index) in CanaclList" :key="index">
-                                <p class="waitText">{{ item.content }}</p>
+                                <p class="waitText waitText_color">{{ item.content }}</p>
                                 <button @click="MoveWait(item.id,$event)">恢复</button>
                             </li>
                         </ul> 
                     </li>
                 </ul>
             </div>
+            <router-link to="/sigin" tag="el-button" type="primary" class="footer_sigin">点击签到</router-link>
         </div>
         <editData :TableShow="table" @delete="dialogEvent"></editData>
         <dialogs :dialogShow="dialogShow" @sureEvent="sureEvent" @cancalEvent="cancalEvent"></dialogs>
@@ -118,7 +119,6 @@ export default {
                 this.$store.dispatch('GODOWN',id)
                 event.target.checked = false
                 this.componentShow1 = true
-                this.isLength()
             }
             
         },
@@ -129,28 +129,9 @@ export default {
             }else if(id){
                 this.$store.dispatch('GOWAIT',id)
             }
-            this.isLength()
         },
         MoveCancal(id){
             this.$store.dispatch('GOCANCAL',id)
-            this.isLength()
-        },
-        isLength(){
-            if(this.waitList.length !== 0){
-                this.componentShow = true
-            }else{
-                this.componentShow = false
-            }
-            if(this.DownList.length !== 0){
-                this.componentShow1 = true
-            }else{
-                this.componentShow1 = false
-            }
-            if(this.CanaclList.length !== 0){
-                this.componentShow2 = true
-            }else{
-                this.componentShow2 = false
-            }
         },
         clearData() {
             this.dialogShow = true
@@ -159,7 +140,7 @@ export default {
             if(this.$store.state.event){
                 this.$store.dispatch('CLEARDATA')
                 this.isShow = false
-                this.isLength()
+
             }else{
                 alert('您暂时还没有数据哦!!')
             }
@@ -178,6 +159,9 @@ export default {
                 id: id
             }
             this.$store.dispatch('DELETEEVENT',this.del_info)
+        },
+        add1(){
+            alert(1)
         }
     },
     computed: {
@@ -202,9 +186,6 @@ export default {
                 }
             })
         }
-    },
-    created () {
-        this.isLength()
     }
 }
 </script>
