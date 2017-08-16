@@ -52,7 +52,14 @@
                     </li>
                 </ul>
             </div>
-            <router-link to="/sigin" tag="el-button" type="primary" class="footer_sigin">点击签到</router-link>
+            <div class="footer">
+            	<router-link to="/sigin" tag="div" type="primary" class="footer_sigin">
+            		<div class="footer_sigin_r">
+            			点击签到
+            		</div>
+            	</router-link>
+            	<router-link to="/order" tag="div" type="primary" class="footer_sigin ">我的订单</router-link>
+            </div>
         </div>
         <editData :TableShow="table" @delete="dialogEvent"></editData>
         <dialogs :dialogShow="dialogShow" @sureEvent="sureEvent" @cancalEvent="cancalEvent"></dialogs>

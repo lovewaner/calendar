@@ -46,7 +46,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+.storeName{
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 //transition  start
 .fade-enter-active, .fade-leave-active {
@@ -225,11 +230,28 @@ table {
 					}
 				}
 			}
-			.footer_sigin{
-				position: fixed;
-				bottom: 0;
-				width: 100%;
-				height: 0.88rem;
+			.footer{
+			    position: fixed;
+                bottom: 0;
+                display: flex;
+                width: 100%;
+                height: 0.88rem;
+			    .footer_sigin{
+                    width: 50%;
+                    border-top: 1px solid #D3DCE6;
+                    text-align: center;
+                    line-height: 0.88rem;
+                    position: relative;
+                    .footer_sigin_r:before{
+                        content: '';
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        border-right: 1px solid #D3DCE6;
+                    }
+                }
+                
 			}
 		}
 		.content.hide{
@@ -367,6 +389,45 @@ table {
 				}
 			}
 		}
+    }
+    .order{
+        .order_content{
+            .order_type{
+                display: flex;
+                text-align: center;
+                height: 0.88rem;
+                line-height: 0.88rem;
+                li{
+                    width: 33.3%;
+                }
+                li.active{
+                    border-bottom: 0.02px solid #DEA726;
+                    color: #DEA726;
+                }
+            }
+            .order_info{
+                h2{
+                    font-size: 0.28rem;
+                    margin: 0.3rem 0 0.3rem 0.3rem;
+                }
+                .order_info_type{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0 0.3rem;
+                    margin-bottom: 0.3rem;
+                    color: #999;
+                }
+                .order_info_ul{
+                    padding: 0 0.32rem;          
+                    li{
+                        height: 0.88rem;
+                        line-height: 0.88rem;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                } 
+            }
+        }
     }
 }
 
